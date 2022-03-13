@@ -1,8 +1,9 @@
 package cantina.app.entidades;
 
 import app.cantina.enume.Tprefeicaoenum;
+import cantina.app.main.Principal;
 
-public class Bebidas extends Mensagem {
+public class Bebidas extends Principal {
     private int opbebida;
     private int qtdebebida;
 

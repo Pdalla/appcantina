@@ -6,7 +6,7 @@ import java.sql.SQLOutput;
 
 public class Mensagem extends Calculos {
 
-
+    Calculos calculos = new Calculos();
     public void MensagemEntrada (){
         System.out.println("Seja bem Vindo à Cantina Codifichiamo");
     }
@@ -37,31 +37,31 @@ public class Mensagem extends Calculos {
     public void Quantidadebebidas(){
         System.out.println("Quantas bebidas você deseja:\n");
     }
-    public void Opcaobebida(){
-        System.out.println("Qual bebida você deseja:\n");
+    public void Opcaobebida(int bebidanum){
+        System.out.println("Qual  a "+bebidanum+" bebida?:\n");
     }
 
     public void Quantidadecomidas(){
         System.out.println("Quantas comidas você deseja:\n");
     }
-    public void Opcaocomida(){
-        System.out.println("Qual comidas você deseja:\n");
+    public void Opcaocomida(int comidanum){
+        System.out.println("Qual  a "+comidanum+" comida?:\n");
     }
     public void Quantidadelanches(){
         System.out.println("Quantos lanches você deseja:\n");
     }
-    public void Opcaolanche(){
-        System.out.println("Qual lanche você deseja:\n");
+    public void Opcaolanche(int lanchenum){
+        System.out.println("Qual  a "+lanchenum+" comida?:\n");
     }
     public void Acrescentar(){
         System.out.println("Você deseja repetir?:\n");
     }
-    public void Resumopedido(){
+    public void Resumopedido(int bebida,int laches,int comida,int total){
         System.out.println("O Total do Pedido resultou em: \n"+
-                "BEBIDAS:"+getCalculobebida()+
-                "LACNHES:"+getCalculolanches()+
-                "COMIDAS:"+getCalculocomida()+
-                "TOTAL:"+getCalculogeral());
+                "BEBIDAS:"+bebida+"\n"+
+                "LACNHES:"+laches+"\n"+
+                "COMIDAS:"+comida+"\n"+
+                "TOTAL:"+total);
     }
 
     public String resposta;
