@@ -1,4 +1,4 @@
-package cantina.app.entidades;
+package app.cantina.entidades;
 
 public class Lanches extends Bebidas{
     private int oplanches;

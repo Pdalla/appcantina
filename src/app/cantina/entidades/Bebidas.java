@@ -1,4 +1,4 @@
-package cantina.app.entidades;
+package app.cantina.entidades;
 
 import app.cantina.enume.Tprefeicaoenum;
 import cantina.app.main.Principal;

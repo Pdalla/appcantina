@@ -1,8 +1,4 @@
-package cantina.app.entidades;
-
-import cantina.app.main.Principal;
-
-import java.sql.SQLOutput;
+package app.cantina.entidades;
 
 public class Mensagem extends Calculos {
 
@@ -56,12 +52,13 @@ public class Mensagem extends Calculos {
     public void Acrescentar(){
         System.out.println("Você deseja repetir?:\n");
     }
-    public void Resumopedido(int bebida,int laches,int comida,int total){
+    public void Resumopedido(int bebida,int laches,int comida,int entregaa,int total ){
         System.out.println("O Total do Pedido resultou em: \n"+
                 "BEBIDAS:"+bebida+"\n"+
                 "LACNHES:"+laches+"\n"+
                 "COMIDAS:"+comida+"\n"+
-                "TOTAL:"+total);
+                "FRETE:"+entregaa+"\n"+
+                "TOTAL:"+total+"\n");
     }
 
     public String resposta;

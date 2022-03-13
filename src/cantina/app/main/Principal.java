@@ -1,11 +1,8 @@
 package cantina.app.main;
 
+import app.cantina.entidades.*;
 import app.cantina.enume.Tprefeicaoenum;
-import cantina.app.entidades.*;
-import org.w3c.dom.ls.LSOutput;
 
-import java.sql.SQLOutput;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Principal {
@@ -20,9 +17,12 @@ public class Principal {
         Lanches lanches = new Lanches();
         Comida comida = new Comida();
         Calculos calculos = new Calculos();
+        //REPOSITORIOS
         int repobebida = 0;
         int repocomida = 0;
         int repolanches = 0;
+        int repoentrega = 0;
+        entrega.setEntregadef(8);
 
         //COMECO
         mensagem.MensagemEntrada();
@@ -32,6 +32,7 @@ public class Principal {
         mensagem.Bebidas();
         mensagem.Quantidadebebidas();
         bebida.setQtdebebida(teclado.nextInt());
+        repoentrega = repoentrega +bebida.getQtdebebida();
         for (int i=1;i<=bebida.getQtdebebida();i++){
             mensagem.Opcaobebida(i);
             bebida.setOpbebida(teclado.nextInt());
@@ -45,10 +46,10 @@ public class Principal {
                 repobebida = repobebida + (Tprefeicaoenum.VALOR_VINHO.getValor());
             }
             calculos.setCalculobebida(repobebida);
+
         }
         mensagem.Acrescentar();
         mensagem.setResposta(teclado.next().toUpperCase());
-        System.out.println(calculos.getCalculobebida());
             if (mensagem.getResposta().equals("SIM")){
                 mensagem.Bebidas();
                 mensagem.Quantidadebebidas();
@@ -66,6 +67,7 @@ public class Principal {
                         repobebida = repobebida + (Tprefeicaoenum.VALOR_VINHO.getValor());
                     }
                     calculos.setCalculobebida(repobebida);
+                    repoentrega = repoentrega +bebida.getQtdebebida();
                 }
             }
 
@@ -74,6 +76,7 @@ public class Principal {
         mensagem.Comidas();
         mensagem.Quantidadecomidas();
         comida.setQtdecomida(teclado.nextInt());
+        repoentrega = repoentrega +comida.getQtdecomida()*2;
         for (int i=1;i<=comida.getQtdecomida();i++){
             mensagem.Opcaocomida(i);
             comida.setOpcomida(teclado.nextInt());
@@ -87,6 +90,7 @@ public class Principal {
                 repocomida = repocomida +(Tprefeicaoenum.VALOR_PALPETONE.getValor());
             }
             calculos.setCalculocomida(repocomida);
+
         }
         mensagem.Acrescentar();
         mensagem.setResposta(teclado.next().toUpperCase());
@@ -107,6 +111,7 @@ public class Principal {
                     repocomida = repocomida + (Tprefeicaoenum.VALOR_PALPETONE.getValor());
                 }
                 calculos.setCalculocomida(repocomida);
+                repoentrega = repoentrega +comida.getQtdecomida()*2;
             }
         }
 
@@ -151,8 +156,9 @@ public class Principal {
                 calculos.setCalculolanches(repolanches);
             }
         }
-        calculos.setCalculogeral(calculos.getCalculobebida()+ calculos.getCalculolanches()+ calculos.getCalculocomida());
-        mensagem.Resumopedido(calculos.getCalculobebida(), calculos.getCalculolanches(), calculos.getCalculocomida(), calculos.getCalculogeral());
+        entrega.setEntregaadd(repoentrega);
+        calculos.setCalculogeral(calculos.getCalculobebida()+ calculos.getCalculolanches()+ calculos.getCalculocomida()+ entrega.getEntregadef()+entrega.getEntregaadd());
+        mensagem.Resumopedido(calculos.getCalculobebida(), calculos.getCalculolanches(), calculos.getCalculocomida(),(entrega.getEntregadef()+entrega.getEntregaadd()),calculos.getCalculogeral());
         mensagem.MensagemSaida();
     }
 }

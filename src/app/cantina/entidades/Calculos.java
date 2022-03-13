@@ -1,4 +1,4 @@
-package cantina.app.entidades;
+package app.cantina.entidades;
 
 import cantina.app.main.Principal;
 
